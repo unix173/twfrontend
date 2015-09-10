@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="animate.js"></script>
+</head>
+
+<body ng-controller="AppController">
+<div ng-repeat="tw in tws" class="fontana scroll-down">
+    <div ng-class="{
+     'message media well col-md-6 col-md-offset-3 focus0': tw.id == 0,
+     'message media well col-md-6 col-md-offset-3 focus1': tw.id == 1,
+     'message media well col-md-6 col-md-offset-3 focus2': tw.id == 2,
+     'message media well col-md-6 col-md-offset-3 focus3': tw.id == 3,
+     'message media well col-md-6 col-md-offset-3 focus4': tw.id == 4,
+     'message media well col-md-6 col-md-offset-3 focus5': tw.id == 5,
+     'message media well col-md-6 col-md-offset-3 focus6': tw.id == 6
+    }">
+        <figure class="pull-left media-object">
+            <img ng-src={{tw.tweet.user.profile_image_url}} width="64" height="64"
+                 class="avatar img-thumbnail">
+        </figure>
+        <div class="media-body">
+            <div class="media-heading">
+                <cite> <span class="name">{{tw.tweet.user.name}}</span>
+                    <small class="text-muted">
+                        <span>{{tw.tweet.user.screen_name}}</span>
+                        <time class="time pull-right">{{tw.tweet.created_at}}</time>
+                    </small>
+                </cite>
+            </div>
+            <div class="text lead"><q>{{tw.tweet.text}}</q></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
