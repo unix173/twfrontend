@@ -16,7 +16,7 @@ app.controller("AppController", function ($scope, $http, $interval) {
     }
 
     $interval(function getNewDataAndAppendToFeedArray() {
-        $http.get('http://localhost:8080/api/oldestRm/5').
+        $http.get('http://192.168.184.58:8080/api/oldestRm/5').
             success(function (data) {
                 feedArray = feedArray.concat(data);
             }).
